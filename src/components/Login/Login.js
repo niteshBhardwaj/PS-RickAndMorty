@@ -72,7 +72,7 @@ function Login(props) {
             <TextField
               type="password"
               label="Password"
-              placeholder="Enter Your Password"
+              placeholder="Enter your password"
               name="password"
               validators={["required", "passwordLength"]}
               inputProps={{

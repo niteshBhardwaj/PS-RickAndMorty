@@ -48,8 +48,8 @@ it('login: it should render and match all the cases (email, password and login s
     );
   
     
-    const emailInput = screen.getByPlaceholderText('Enter Your email.'); 
-    const passwordInput = screen.getByPlaceholderText('Enter Your Password'); 
+    const emailInput = screen.getByPlaceholderText('Enter your email'); 
+    const passwordInput = screen.getByPlaceholderText('Enter your password'); 
     const form = container.querySelector('form');
     
     // check email value
