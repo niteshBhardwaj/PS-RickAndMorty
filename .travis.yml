@@ -1,13 +1,11 @@
 language: node_js
-
-node_js: 
-    - "stable"
-
+node_js:
+- stable
 cache:
-    directories:
-        - "node_modules"
+  directories:
+  - node_modules
 deploy:
-    provider: heroku
-    api_key:
-        secure: $HEROKU_SECRET_KEY
-    app: ps-rick-morty
+  provider: heroku
+  api_key:
+    secure: N0/0zQ+iAVP6B012kAuI76H3bUvHjgYPW8JiLcigf1dH5vi3gOemVibAwc2zpzEwg6gbc7a4RbehuoFmjVnCBDRpuHoXI/uYAl6HTgqTVlOAB9aTIKBlyPQXjf9EQn4uRswsV8BX/uP5QoRukBAbaFbLOTCFEyNhYLfXUIjlpBlwJQq+B5yGaU0QnS3lKudeRyLAvQO0JiJIrosMyD+rrvJVdZl+PaYdUvKHeHqFTo5Ip2sBuXvrzFjBcXwMEkNx5vavHlzNJW3va9TiD4x/+MggkanPKYy2Nd5Nsr16sbiRdjK8zK6kvfDEqUTb1p+UnUdCGiC11MpDoR2Lmvc/Cb5eFIJz75qmkDIecfC0UkT4MNANXzaGdqK7mZrNnJLfefwPKfqb9tse6xD0ntXzW8EY/V/6f6sHtTezl3sv4eIjHBRQgJoFj0SDzZQP6+sa1z+vEzx1AHSZPZ/FOgYJz3lxbmIM1lpY9pGhFZGVgbEja83vPYVfTGVy6nOulJ68dzp6q9enHsbruJS0qCdno29QTq712CYsETFpWFKIfvPpf9SKfeKBEoqdz2K/bole6rFeSrY6D72C8oHoip5SS80SUvoZgHsw5z8zYcLOTpOrWqhwc+mlDCOzdGR0fDTTPr+3ex65Vk75hYZOmXQEqieDiiH0ddDBHqzd4ZU/ksY=
+  app: ps-rick-morty
