@@ -1,7 +1,8 @@
 language: node_js
 
-before_scripts: 
-    - npm install
+node_js: 
+    - "stable"
 
-script:
-    - npm run test
+cache:
+    directories:
+        - "node_modules"
