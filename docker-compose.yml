@@ -1,0 +1,16 @@
+
+version: "3"
+
+services: 
+    mongo-server:
+        image: "mongo"
+    app:
+        restart: on-failure
+        build: .
+        ports: 
+            - "2005:2001"
+        environment:
+            - NODE_ENV=production
+            - JWT_SECRET=JWT_PRIVATE_KEY,
+            - PORT=2001
+            - MONGODB_URL=mongodb://mongo-server:27017
