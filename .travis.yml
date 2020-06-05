@@ -6,3 +6,8 @@ node_js:
 cache:
     directories:
         - "node_modules"
+deploy:
+    provider: heroku
+    api_key:
+        secure: $HEROKU_SECRET_KEY
+    app: ps-rick-morty
