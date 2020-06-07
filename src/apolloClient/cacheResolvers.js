@@ -1,5 +1,3 @@
-import {cache} from './cacheInstance';
-
 let defaultMsg = {
     key: 0, 
     message: "",  
@@ -8,7 +6,7 @@ let defaultMsg = {
     __typename: "ServerMessage"
   }
 
-export const updateMessage = (messageObj) => {
+export const updateMessage = (cache, messageObj) => {
     cache.writeData({data: {messageInfo: {...defaultMsg, ...messageObj}}})
 }
 

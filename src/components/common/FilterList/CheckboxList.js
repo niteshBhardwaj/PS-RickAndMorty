@@ -7,8 +7,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 
 export default function CheckboxList({name, list, checkedFilter, handleChange, maxShow=4, itemLength}) {
     let [show, handleShow] = React.useState(false);
-    if(!show && itemLength > 4) {
-        list = list.slice(0).splice(0, maxShow)
+    if(!show && itemLength > maxShow) {
+        list = list.slice(0, maxShow)
     }
     return (<>
     <FormGroup>

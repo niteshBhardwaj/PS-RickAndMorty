@@ -6,6 +6,7 @@ import { Box, Button, Typography, Grid } from "@material-ui/core";
 import { useMutation } from "@apollo/react-hooks";
 import { SIGNUP_QUERY } from "../../apolloClient/query/loginSignupQuery";
 import { Helmet } from "react-helmet-async";
+import { updateMessage } from "../../apolloClient/cacheResolvers";
 
 function Signup(props) {
   let { history } = props;
@@ -14,8 +15,7 @@ function Signup(props) {
     email: "",
     password: "",
   });
-  const [signup, { loading }] = useMutation(SIGNUP_QUERY);
-
+  const [signup, {client, loading}] = useMutation(SIGNUP_QUERY);
   const onChange = (value, name) => {
     variables[name] = value;
     setVariables({ ...variables });
@@ -25,7 +25,7 @@ function Signup(props) {
     e.preventDefault();
     try {
       await signup({ variables: { ...variables } });
-      //   updateMessage({message: "Signup Successful!"})
+      updateMessage(client, {message: "Signup Successful!"})
       history.replace("/login");
     } catch (err) {
       console.error(err);

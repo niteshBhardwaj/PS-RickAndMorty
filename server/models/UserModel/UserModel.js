@@ -63,12 +63,16 @@ userSchema.pre('save', function(next) {
 })
 
 
-userSchema.statics.authenticate = async function({email}, cb) {
+userSchema.statics.authenticate = async function({email, password}, cb) {
     let user = this;
     let userData = await user.findOne({email});
-
+ 
     if(!userData) {
       return Promise.reject(`No user registerd with ${email}`);
+    }
+    let verify = await passwordHash.verify(password, userData.password);
+    if(!verify) {
+      return Promise.reject(`Invalid user password`);
     }
     return user.getAuthToken(userData);
 }

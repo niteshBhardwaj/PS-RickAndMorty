@@ -27,10 +27,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 16,
   },
   cardHeader: {
-    marginTop: "-56px",
     background: "rgba(100,100,100,.8)",
     color: "#fff",
-    height: "40px",
+    bottom: 0,
+    width: '100%'
   },
 }));
 
@@ -42,8 +42,9 @@ export default function CharacterCard({ item }) {
   return (
     <Grid item xs={12} lg={3} sm={12} md={6}>
       <Card className={classes.root}>
+        <Box position="relative">
         <CardMedia className={classes.media} image={item.image} />
-        <Box p={2} className={classes.cardHeader}>
+        <Box position="absolute" px={2} py={1} className={classes.cardHeader}>
           <Typography component="div" variant="body1">
             {item.name}
           </Typography>
@@ -52,6 +53,7 @@ export default function CharacterCard({ item }) {
             variant="caption"
             noWrap
           >{`id: ${item.id} - created: ${item.created}`}</Typography>
+        </Box>
         </Box>
         <List dense={true}>
           {characterKeys.map((label) => (

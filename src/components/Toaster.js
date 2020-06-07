@@ -28,7 +28,7 @@ function Toaster(props) {
           horizontal: 'center',
         }}
         open={messageInfo.open}
-        autoHideDuration={4000}
+        autoHideDuration={6000}
         ContentProps={{
           'aria-describedby': 'message-id',
         }}

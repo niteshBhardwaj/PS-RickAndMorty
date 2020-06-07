@@ -1,5 +1,6 @@
 import Auth from '../ClientServices/AuthStorage'
 import {updateMessage} from './cacheResolvers';
+import {cache} from './cacheInstance';
 
 export default ({ graphQLErrors, networkError }) => {
     if (graphQLErrors) {
@@ -7,9 +8,6 @@ export default ({ graphQLErrors, networkError }) => {
       if(error.extensions.code === 401) {
         Auth.logout();
       }
-      //console.log(cache);
-      updateMessage({message: error.message})
-    } else if(networkError) {
-      //logoutUser();
+      updateMessage(cache, {message: error.message})
     }
 }
