@@ -17,7 +17,8 @@ function Login(props) {
   const { history } = props;
   const [login, { loading }] = useMutation(LOGIN_QUERY);
 
-  const onChange = (value, name) => {
+  const onChange = ({target}) => {
+    let {name, value} = target;
     variables[name] = value;
     setVariables({ ...variables });
   };
@@ -64,10 +65,11 @@ function Login(props) {
                 'aria-label': 'email',
               }}
               errorMessages={[
-                "Please Enter your email",
-                "Please Enter valid email!",
+                "Please enter your email!",
+                "Please enter valid email!",
               ]}
-              getValue={onChange}
+              value={variables.email}
+              onChange={onChange}
             />
             <TextField
               type="password"
@@ -79,10 +81,11 @@ function Login(props) {
                 'aria-label': 'password',
               }}
               errorMessages={[
-                "Please Enter your password",
+                "Please enter your password",
                 "Password length should be between 6 and 20",
               ]}
-              getValue={onChange}
+              value={variables.password}
+              onChange={onChange}
             />
             <Box mt={4}>
               <Button

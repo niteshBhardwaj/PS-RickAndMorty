@@ -56,4 +56,9 @@ export default function FilterServiceProvider(props) {
   );
 };
 
-export const FilterServiceHOC = (Comp) => (props) => <FilterServiceProvider> <Comp {...props} /> </FilterServiceProvider> 
+export const FilterServiceHOC = (Comp) => (props) => <FilterServiceProvider> <Comp {...props} /> </FilterServiceProvider>
+
+export const withFilterService = (Comp) => (props) => {
+  const data = React.useContext(FilterServiceContext);
+  return <Comp {...props} {...data}  />
+}

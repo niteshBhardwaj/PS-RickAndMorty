@@ -6,11 +6,6 @@ import { LOGIN_QUERY } from '../../apolloClient/query/loginSignupQuery';
 import { createMemoryHistory } from 'history'
 import {Router} from 'react-router-dom'
 import { HelmetProvider } from "react-helmet-async";
-import {
-    toBeDisabled,
-  } from '@testing-library/jest-dom'
-
-expect.extend({toBeDisabled})
 
 it('login: it should render and match all the cases (email, password and login submit)', async () => {
     const loginResp = {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWQxNDhjNzJhOWUyMzcwZTgxOGIxMTEiLCJpYXQiOjE1OTEyNTM3MjN9.8ZGxLIxjd_Axj5XrRsAEcIhrjxgPyQ13QFSJck4VXyQ"};

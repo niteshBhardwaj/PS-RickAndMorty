@@ -16,7 +16,8 @@ function Signup(props) {
     password: "",
   });
   const [signup, {client, loading}] = useMutation(SIGNUP_QUERY);
-  const onChange = (value, name) => {
+  const onChange = ({target}) => {
+    let {name, value} = target;
     variables[name] = value;
     setVariables({ ...variables });
   };
@@ -54,44 +55,47 @@ function Signup(props) {
             <TextField
               type="text"
               label="Name"
-              placeholder="Enter Your Full Name"
+              placeholder="Enter your full name"
               name="name"
               inputProps={{
                 'aria-label': 'name',
               }}
               validators={["required"]}
-              errorMessages={["Please Enter your name"]}
-              getValue={onChange}
+              errorMessages={["Please enter your name"]}
+              value={variables.name}
+              onChange={onChange}
             />
             <TextField
               type="text"
               label="Email"
-              placeholder="Enter Your email."
+              placeholder="Enter your email"
               name="email"
+              validators={["required", "email"]}
               inputProps={{
                 'aria-label': 'email',
               }}
-              validators={["required", "email"]}
               errorMessages={[
-                "Please Enter your email",
-                "Please Enter valid email!",
+                "Please enter your email",
+                "Please enter valid email!",
               ]}
-              getValue={onChange}
+              value={variables.email}
+              onChange={onChange}
             />
             <TextField
               type="password"
               label="Password"
-              placeholder="Enter Your Password"
+              placeholder="Enter your password"
               name="password"
+              value={variables.password}
               validators={["required", "passwordLength"]}
               inputProps={{
                 'aria-label': 'password',
               }}
               errorMessages={[
-                "Please Enter your password",
+                "Please enter your password",
                 "Password length should be between 6 and 20",
               ]}
-              getValue={onChange}
+              onChange={onChange}
             />
             <Box mt={4}>
               <Button

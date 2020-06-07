@@ -6,11 +6,6 @@ import { SIGNUP_QUERY } from '../../apolloClient/query/loginSignupQuery';
 import { createMemoryHistory } from 'history'
 import {Router} from 'react-router-dom'
 import { HelmetProvider } from "react-helmet-async";
-import {
-    toBeDisabled,
-  } from '@testing-library/jest-dom'
-
-expect.extend({toBeDisabled})
 
 it('signup: it should render and match all the cases (email, password and login submit)', async () => {
     const history = createMemoryHistory();
@@ -45,9 +40,9 @@ it('signup: it should render and match all the cases (email, password and login 
       </MockedProvider>,
     );
   
-    const nameInput = screen.getByPlaceholderText('Enter Your Full Name'); 
-    const emailInput = screen.getByPlaceholderText('Enter Your email.'); 
-    const passwordInput = screen.getByPlaceholderText('Enter Your Password'); 
+    const nameInput = screen.getByPlaceholderText('Enter your full name'); 
+    const emailInput = screen.getByPlaceholderText('Enter your email'); 
+    const passwordInput = screen.getByPlaceholderText('Enter your password'); 
     const form = container.querySelector('form');
     
     // check name value
