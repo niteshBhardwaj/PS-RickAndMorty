@@ -23,9 +23,9 @@ export default function Header() {
     return (
         <AppBar elevation={1} position="relative" color="transparent">
           <Toolbar>
-            <Typography className={classes.title} variant="h4">The Rick and Morty </Typography>
-            {loggedIn && <Box position="absolute" right={16} display="flex" flexDirection="column" justifyContent="center">
-                <Typography variant="body1">{userSetting?.user?.name}</Typography>
+            <Typography className={classes.title} variant="h5">The Rick and Morty </Typography>
+            {loggedIn && <Box textAlign="right" position="absolute" right={16} display="flex" flexDirection="column" justifyContent="center">
+                <Typography variant="body2"> Nitesh Bhardwaj</Typography>
                 <Link to="/logout"> Logout </Link>
             </Box>}
           </Toolbar>
